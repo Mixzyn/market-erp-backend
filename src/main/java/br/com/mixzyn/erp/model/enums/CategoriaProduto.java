@@ -1,4 +1,4 @@
-package br.com.mixzyn.erp.entity;
+package br.com.mixzyn.erp.model.enums;
 
 public enum CategoriaProduto {
     LIQUIDO,

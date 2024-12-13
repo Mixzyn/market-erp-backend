@@ -1,12 +1,11 @@
 package br.com.mixzyn.erp.service;
 
-import br.com.mixzyn.erp.entity.Produto;
+import br.com.mixzyn.erp.model.entity.Produto;
 import br.com.mixzyn.erp.repository.ProdutoRepository;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProdutoService {
@@ -17,23 +16,27 @@ public class ProdutoService {
         this.repository = repository;
     }
 
-    public List<Produto> findAllProdutos() {
+    public List<Produto> exibirTodosProdutos() {
         return repository.findAll();
     }
 
-    public Produto findProdutoById(Integer id){
-        return repository.findById(id).orElse(null);
+    public Optional<Produto> encontrarProdutoPorId(Integer id){
+        return repository.findById(id);
     }
 
-    public List<Produto> findProdutoByName(String name){
+    public List<Produto> encontrarProdutoPorNome(String name){
         return repository.findAllByNomeContaining(name);
     }
 
-    public Produto criarProduto(Produto produto) {
+    public Produto salvarProduto(Produto produto) {
         return repository.save(produto);
     }
 
-    public void deleteProduto(Integer id){
+    public void deletarProduto(Integer id){
         repository.deleteById(id);
+    }
+
+    public boolean seProdutoExiste(Integer id) {
+        return repository.existsById(id);
     }
 }

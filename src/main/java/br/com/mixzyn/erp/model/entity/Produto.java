@@ -1,5 +1,6 @@
-package br.com.mixzyn.erp.entity;
+package br.com.mixzyn.erp.model.entity;
 
+import br.com.mixzyn.erp.model.enums.CategoriaProduto;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
