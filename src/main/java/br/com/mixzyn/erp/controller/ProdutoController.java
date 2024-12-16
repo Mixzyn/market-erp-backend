@@ -57,6 +57,14 @@ public class ProdutoController {
         return ResponseEntity.ok(service.salvarProduto(produto));
     }
 
+    @PatchMapping("{id}")
+    public ResponseEntity<Produto> atualizarQuantidade(
+            @PathVariable("id") Integer id,
+            @RequestBody Produto produto
+    ){
+        return ResponseEntity.ok(service.atualizarQtdProduto(id, produto));
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity deletarProduto(@PathVariable("id") Integer id){
         service.deletarProduto(id);

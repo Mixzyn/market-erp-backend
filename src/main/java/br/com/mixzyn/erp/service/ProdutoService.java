@@ -32,6 +32,17 @@ public class ProdutoService {
         return repository.save(produto);
     }
 
+    public Produto atualizarQtdProduto(Integer id, Produto produto) {
+        produto.setId(id);
+
+        return repository.findById(id).map(p -> {
+            Optional.ofNullable(produto.getQuantidade()).ifPresent(p::setQuantidade);
+            return repository.save(p);
+
+        }).orElseThrow(() -> new RuntimeException("id não encontrado"));
+
+    }
+
     public void deletarProduto(Integer id){
         repository.deleteById(id);
     }

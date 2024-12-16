@@ -21,7 +21,6 @@ CREATE TABLE cliente (
 -- Tabela de Estoque
 CREATE TABLE estoque (
     id_estoque INT AUTO_INCREMENT PRIMARY KEY,
-    qtd_total INT NOT NULL DEFAULT 0,
     dt_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     dt_atualizacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
